@@ -8,7 +8,7 @@ class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     question_title = models.CharField(max_length=100)
     content = models.TextField(max_length=1000)
-    slug = models.SlugField(unique=True, max_length=100)
+    # slug = models.SlugField(unique=True, max_length=100)
     tags = TaggableManager()
     created_at = models.DateTimeField(default=timezone.now)
 
