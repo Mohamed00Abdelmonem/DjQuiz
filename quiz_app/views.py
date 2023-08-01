@@ -65,3 +65,9 @@ class Question_Answer(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)    
+    
+
+class Question_Update(UpdateView):
+    model = Question
+    fields = '__all__'
+    success_url = '/'
