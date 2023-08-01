@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.urls import reverse
 from django.shortcuts import render
 from .forms import QuestionForm, AnswerForm
 from .models import Question, Answer
@@ -33,11 +35,18 @@ def Question_Detail(request, Q_id):
     return render(request, 'quiz_app/question_detail.html', {'Q': data, 'answers': answers, 'is_correct_answer': is_correct_answer})
 
 
+
+
+
 class Question_Create(CreateView):
     model = Question
     form_class = QuestionForm  # Use the custom form instead of specifying 'fields'
 
-    success_url = '/'  # Replace with the desired URL
+    def get_success_url(self):
+        # Send a success message
+        messages.success(self.request, 'Qeustion created successfully!')
+        return reverse('create_a')
+    # success_url = '/'  # Replace with the desired URL
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -48,8 +57,11 @@ class Question_Create(CreateView):
 class Question_Answer(CreateView):
     model = Answer
     form_class = AnswerForm  # Use the custom form instead of specifying 'fields'
-    success_url = '.'  # كدا انا هرجع لنفس الصفحه 
-
+    # success_url = '.'  # كدا انا هرجع لنفس الصفحه 
+    def get_success_url(self):
+        # Send a success message
+        messages.success(self.request, 'Answer created successfully!')
+        return reverse('create_a')
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)    
