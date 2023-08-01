@@ -19,7 +19,6 @@ def Question_Detail(request, Q_id):
 
     if request.method == 'POST':
         selected_answer_id = request.POST.get('answer')  # Get the ID of the selected answer from the form
-
         try:
             selected_answer = Answer.objects.get(id=selected_answer_id)
             if selected_answer.correct_answer:
@@ -28,13 +27,9 @@ def Question_Detail(request, Q_id):
                 is_correct_answer = False
         except Answer.DoesNotExist:
             is_correct_answer = False
-
     else:
         is_correct_answer = None
-
     return render(request, 'quiz_app/question_detail.html', {'Q': data, 'answers': answers, 'is_correct_answer': is_correct_answer})
-
-
 
 
 
@@ -53,7 +48,6 @@ class Question_Create(CreateView):
         return super().form_valid(form)
     
 
-
 class Question_Answer(CreateView):
     model = Answer
     form_class = AnswerForm  # Use the custom form instead of specifying 'fields'
@@ -63,9 +57,10 @@ class Question_Answer(CreateView):
         messages.success(self.request, 'Answer created successfully!')
         return reverse('create_a')
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.author = self.request.user    
         return super().form_valid(form)    
     
+
 
 class Question_Update(UpdateView):
     model = Question
@@ -78,4 +73,5 @@ class Question_Update(UpdateView):
 class Question_Delete(DeleteView):
     model = Question
     success_url = '/'
+
 

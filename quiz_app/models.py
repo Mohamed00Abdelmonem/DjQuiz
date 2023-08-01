@@ -4,6 +4,7 @@ from taggit.managers import TaggableManager
 from django.utils import timezone
 # Create your models here.
 
+
 class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     question_title = models.CharField(max_length=100)
@@ -15,6 +16,8 @@ class Question(models.Model):
     def __str__(self) -> str:
         return self.question_title
     
+
+
 class Answer(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     answer = models.CharField(max_length=200)
