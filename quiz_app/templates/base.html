@@ -9,10 +9,26 @@
   <title>Quiz Online</title>
   <style>
 
+    /* Custom CSS for changing the background color of the navbar to blue */
+    .navbar {
+      background-color: #5eb678; /* Blue color, you can change it to any desired color */
+    }
+
+    /* Custom CSS for changing the link color in the navbar */
+    .navbar a.nav-link {
+      color: #ede7e7; /* White color, you can change it to any desired text color */
+    }
+
+    /* Custom CSS for changing the active link color in the navbar */
+    .navbar a.nav-link.active {
+      color: rgb(238, 237, 240); /* Red color, you can change it to any desired active text color */
+    }
+
   
     .navbar-brand {
       font-size: 24px;
       font-weight: bold;
+      color: aliceblue;
     }
 
     .card-title {
@@ -75,7 +91,7 @@ ul.breadcrumb {
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md ">
     <div class="container">
       <a class="navbar-brand" href="/">Quiz Online</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
