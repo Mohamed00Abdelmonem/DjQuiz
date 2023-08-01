@@ -71,3 +71,11 @@ class Question_Update(UpdateView):
     model = Question
     fields = '__all__'
     success_url = '/'
+    template_name = 'quiz_app/Quetion_update.html'
+
+
+
+class Question_Delete(DeleteView):
+    model = Question
+    success_url = '/'
+
