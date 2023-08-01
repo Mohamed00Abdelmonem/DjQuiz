@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Quiz Online</title>
+  <style>
+
+  
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .card-title {
+      margin-bottom: 0;
+    }
+
+    .card-link {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2bc640;
+      text-decoration: none;
+    }
+
+    .card-link:hover {
+      text-decoration: none;
+    }
+    a.a {
+      font-size: 18px;
+      font-weight: bold;
+      color: #46b148;
+      text-decoration: none;
+    }
+
+    a.a:hover {
+      text-decoration: none;
+    }
+    /* Style for the breadcrumb list */
+ul.breadcrumb {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for each breadcrumb item */
+.breadcrumb-item {
+  display: inline-block;
+}
+
+/* Style for the link inside the breadcrumb item */
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #49b843; /* Change this to your desired link color */
+}
+
+/* Style for the active breadcrumb item */
+.breadcrumb-item.active {
+  color: #333; /* Change this to your desired active item color */
+}
+
+/* Style for the separator between breadcrumb items (optional) */
+.breadcrumb-item:not(:last-child)::after {
+  /* content: "/"; */
+  margin: 0 5px;
+  color: #999; /* Change this to your desired separator color */
+}
+
+  </style>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Quiz Online</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <ol class="breadcrumb my-4">
+        {% block breadcrumb %}
+        {% endblock %}
+    </ol>
+
+  {% block content %}
+
+  {% endblock %}
+  <!-- Page Content -->
+  
+
+  <!-- Bootstrap JS, jQuery, and Popper.js scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
