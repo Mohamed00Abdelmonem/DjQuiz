@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import Question_List
 
 urlpatterns = [
-    # path('', views.index, name = 'home')
+    path('q/', Question_List.as_view()),
 ]
