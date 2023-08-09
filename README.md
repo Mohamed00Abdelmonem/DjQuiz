@@ -41,23 +41,27 @@
 
 
 
-### `Screenshots`
 
-`Here are some screenshots of the application's pages:`
+### Screenshots
 
-### `Home Page (Or All Questions)`
+Here are some screenshots of the application's pages:
 
-`![Screenshot 2023-![Screenshot 2023-08-01 223732](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223732.jpg)08-01 223811](D:\Screenshot 2023-08-01 223811.jpg)`
+#### Home Page (Or All Questions)
+![Home Page](screenshots/2.jpg)
 
-`![Screenshot 2023-08-01 223811](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223811.jpg)`
+#### Create Question
+![Create Question](screenshots/3.jpg)
 
-`![Screenshot 2023-08-01 223832](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223832.jpg)`
+#### Create Answer
+![Create Answer](screenshots/1.jpg)
 
-`![Screenshot 2023-08-01 223853](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223853.jpg)`
+#### Update Question
+![Update Question](screenshots/4.jpg)
 
-`![Screenshot 2023-08-01 223910](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223910.jpg)`
+#### Delete Question
+![Delete Question](screenshots/5.jpg)
 
-`![Screenshot 2023-08-01 223932](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223932.jpg)`
-
-`![Screenshot 2023-08-01 223951](D:\course django 2023\Course\Django\Task1(Fourm app)\DjTask1\src\screenshots\Screenshot 2023-08-01 223951.jpg)`
-
+#### Correct Answer
+![Correct Answer](screenshots/6.jpg)
+#### Wrong Answer
+![Wrong Answer](screenshots/7.jpg)

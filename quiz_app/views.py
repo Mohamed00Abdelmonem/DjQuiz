@@ -1,15 +1,15 @@
 from django.contrib import messages
 from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import QuestionForm, AnswerForm
 from .models import Question, Answer
 from django.views.generic import ListView , CreateView, UpdateView, DeleteView
 # Create your views here.
 
+
 class Question_List(ListView):
     model = Question
     context_object_name = "question"
-
 
 
 
@@ -40,26 +40,82 @@ class Question_Create(CreateView):
     def get_success_url(self):
         # Send a success message
         messages.success(self.request, 'Qeustion created successfully!')
-        return reverse('create_a')
-    # success_url = '/'  # Replace with the desired URL
+        return reverse('indax')
+        # success_url = '/'  # Replace with the desired URL
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
 
-class Question_Answer(CreateView):
+
+
+
+class Question_Answer(CreateView,):
+
     model = Answer
-    form_class = AnswerForm  # Use the custom form instead of specifying 'fields'
-    # success_url = '.'  # كدا انا هرجع لنفس الصفحه 
+    form_class = AnswerForm
+
     def get_success_url(self):
-        # Send a success message
+        question_pk = self.kwargs['pk']
         messages.success(self.request, 'Answer created successfully!')
-        return reverse('create_a')
+        return reverse('create_answer', kwargs={'pk': question_pk})
     def form_valid(self, form):
-        form.instance.author = self.request.user    
-        return super().form_valid(form)    
+        form.instance.author = self.request.user
+        question_pk = self.kwargs['pk']
+        form.instance.question = Question.objects.get(pk=question_pk)
+
+        # Set the question title for the answer
+        question = Question.objects.get(pk=question_pk)
+        form.instance.question_title = question.title  # Use the 'title' attribute of the question
+
+        return super().form_valid(form)
+
     
+
+
+def Question_Answer(request, A_id):
+    question = Question.objects.get(id=A_id)  # Use get_object_or_404 to handle missing questions
+
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.author = request.user
+            answer.question_title = question
+            answer.save()
+            return redirect('/')  # Redirect to a success page or appropriate view
+    
+    else:
+        form = AnswerForm()
+
+    return render(request, 'quiz_app/answer_form.html', {'form': form})
+
+
+
+# def Question_Answer(request, A_id):
+#     data  = Question.objects.get(id = A_id)
+#     answer = Answer.objects.get(question_title = data) 
+
+#     if request.method == 'POST':
+#         form = AnswerForm(request.POST, instance=data)
+#         if form.is_valid():
+#            form.save(commit = False)
+#            form.author = request.user
+#            form.question_title = answer
+#            form.save()
+#            return redirect('/')
+
+#     else:
+#         form = AnswerForm()
+#     return render(request, 'quiz_app/answer_form.html', {'form':form})        
+
+
+
+
+
+
+
 
 
 class Question_Update(UpdateView):

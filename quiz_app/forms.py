@@ -9,4 +9,4 @@ class QuestionForm(forms.ModelForm):
 class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer
-        exclude = ['author']  # Exclude the 'author' field from the form
+        exclude = ['author', 'question_title']  # Exclude the 'author' field from the form
