@@ -60,6 +60,14 @@ Here are some screenshots of the application's pages:
 
 #### Delete Question
 ![Delete Question](screenshots/5.jpg)
+<<<<<<< HEAD
+=======
+
+#### Correct Answer
+![Correct Answer](screenshots/6.jpg)
+#### Wrong Answer
+![Wrong Answer](screenshots/7.jpg)
+>>>>>>> 9df057f5d3ecd4155eb83d39d7ed9dabbb905ce4
 
 #### Correct Answer
 ![Correct Answer](screenshots/6.jpg)

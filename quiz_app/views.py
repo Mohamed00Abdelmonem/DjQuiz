@@ -51,25 +51,25 @@ class Question_Create(CreateView):
 
 
 
-class Question_Answer(CreateView,):
+# class Question_Answer(CreateView,):
 
-    model = Answer
-    form_class = AnswerForm
+#     model = Answer
+#     form_class = AnswerForm
 
-    def get_success_url(self):
-        question_pk = self.kwargs['pk']
-        messages.success(self.request, 'Answer created successfully!')
-        return reverse('create_answer', kwargs={'pk': question_pk})
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        question_pk = self.kwargs['pk']
-        form.instance.question = Question.objects.get(pk=question_pk)
+#     def get_success_url(self):
+#         question_pk = self.kwargs['pk']
+#         messages.success(self.request, 'Answer created successfully!')
+#         return reverse('create_answer', kwargs={'pk': question_pk})
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         question_pk = self.kwargs['pk']
+#         form.instance.question = Question.objects.get(pk=question_pk)
 
-        # Set the question title for the answer
-        question = Question.objects.get(pk=question_pk)
-        form.instance.question_title = question.title  # Use the 'title' attribute of the question
+#         # Set the question title for the answer
+#         question = Question.objects.get(pk=question_pk)
+#         form.instance.question_title = question.title  # Use the 'title' attribute of the question
 
-        return super().form_valid(form)
+#         return super().form_valid(form)
 
     
 
